@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .sidebar h2 {
+            text-align: center;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .user-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .user-info .dropdown {
+            position: relative;
+        }
+        .user-info .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        .user-info .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+        }
+        .user-info .dropdown-menu a:hover {
+            background-color: #f0f0f0;
+        }
+        .user-info .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="{% url 'listar_colaboradores' %}">Listar Colaboradores</a></li>
+            <li><a href="{% url 'cadastrar_colaborador' %}">Cadastrar Colaborador</a></li>
+            <li><a href="{% url 'cadastrar_equipamento' %}">Cadastrar Equipamento</a></li>
+            <li><a href="{% url 'cadastrar_controle_epi' %}">Controle de Equipamento</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="user-info">
+            <img src="https://via.placeholder.com/50" alt="Foto do Usuário">
+            <div class="dropdown">
+                <span>Usuário Logado</span>
+                <div class="dropdown-menu">
+                    <a href="#">Configurações</a>
+                    <a href="#">Sair</a>
+                </div>
+            </div>
+        </div>
+        <h1>Bem-vindo ao Controle de EPI</h1>
+        <p>Use o menu lateral para navegar pelas funcionalidades.</p>
+    </div>
+</body>
+</html>
